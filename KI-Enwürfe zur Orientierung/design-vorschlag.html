@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>markjahnke.de — Designvorschlag</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================
+   CSS-VARIABLEN
+   Neu für dich: Mit --name definierst du einmal
+   eine Farbe und kannst sie überall mit var(--name)
+   wiederverwenden. Änderst du den Wert hier oben,
+   ändert sich die Farbe automatisch auf der ganzen Seite.
+   ============================================ */
+:root {
+  --bg-base: #121212;
+  --bg-dark: #1E2021;
+  --bg-card: #282828;
+  --bg-nav: #231D25;
+  --bg-dropdown: #292335;
+  --border-violet: #3F384C;
+  --accent: #673CBE;
+  --accent-light: #8463C5;
+  --accent-signature: #B83EEA;
+  --tag-green: #14C814;
+  --tag-orange: #997121;
+  --tag-yellow: #9D7423;
+  --tag-blue: #2A3F8F;
+  --tag-red: #EE5E62;
+  --text-main: #FFFDF2;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Grund-Reset, damit Browser-Standardabstände nicht stören */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Padding wird in die Breite eingerechnet, nicht addiert */
+
+  }
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* ============================================
+   HERO-BEREICH
+   ============================================ */
+#hero-banner {
+  background-image:
+    linear-gradient(180deg, rgba(18,18,18,0.55), rgba(18,18,18,0.85)),
+    url("images/hero-banner.png");
+  background-size: cover;
+  background-position: center;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#hero-banner h1 {
+  font-family: var(--font-mono);
+  font-size: 44px;
+  color: var(--text-main);
+}
+
+/* Blinkender Cursor wie im Terminal — das Signature-Element des Designs */
+.cursor {
+  display: inline-block;
+  width: 0.5em;
+  background-color: var(--accent-signature);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+#hero-banner p {
+  font-family: var(--font-mono);
+  color: var(--accent-light);
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+header.nav-bar {
+  background-color: var(--bg-nav);
+  border-bottom: 1px solid var(--border-violet);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 8px 16px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  background-color: var(--accent);
+  color: var(--text-main);
+}
+
+/* Dropdown — gleiche Technik wie schon besprochen (position + :hover) */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-dropdown);
+  border: 1px solid var(--border-violet);
+  list-style: none;
+  min-width: 180px;
+  padding: 6px 0;
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--accent);
+}
+
+/* ============================================
+   HAUPTINHALT
+   ============================================ */
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+section {
+  margin-bottom: 64px;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-violet);
+}
+
+/* kleine "Kommentarzeile" wie im Code, rein dekorativ */
+h2::before {
+  content: "// ";
+  color: var(--tag-green);
+}
+
+section p {
+  max-width: 640px;
+}
+
+/* ============================================
+   SKILL-TAGS
+   Jede Farbe steht für eine Kategorie — wie
+   Syntax-Highlighting im Editor.
+   ============================================ */
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  color: var(--text-main);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.tag-frontend { background-color: var(--accent); }
+.tag-tools    { background-color: var(--tag-green); color: #121212; }
+.tag-logik    { background-color: var(--tag-blue); }
+.tag-learning { background-color: var(--tag-yellow); color: #121212; }
+.tag-soft     { background-color: var(--accent-light); }
+
+/* ============================================
+   PROJEKT-KARTE (Signature-Element Nr. 2)
+   ============================================ */
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-violet);
+  border-left: 3px solid var(--accent-signature); /* der "Punk"-Akzent, bewusst sparsam eingesetzt */
+  padding: 24px;
+  border-radius: 6px;
+}
+
+.project-card h3 {
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  color: #c9c9c9;
+  margin-bottom: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-light);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  text-align: center;
+  background-color: var(--bg-dark);
+  padding-top: 0;
+}
+
+#hero-bottom-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+footer .footer-content {
+  padding: 32px 24px;
+}
+
+footer p {
+  color: #9a9a9a;
+  font-size: 13px;
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+}
+
+footer .btn {
+  margin: 0 6px;
+}
+
+</style>
+</head>
+<body>
+
+<header id="hero-banner">
+  <h1>markjahnke.de<span class="cursor">&nbsp;</span></h1>
+  <p>angehender Fachinformatiker für Anwendungsentwicklung</p>
+</header>
+
+<header class="nav-bar">
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#kompetenzen">Kompetenzen</a></li>
+      <li><a href="#projekte">Projekte</a></li>
+      <li class="dropdown">
+        <a href="#bewerbungsunterlagen">Bewerbungsunterlagen</a>
+        <ul class="dropdown-menu">
+          <li><a href="#lebenslauf">Lebenslauf</a></li>
+          <li><a href="#zeugnisse">Zeugnisse</a></li>
+        </ul>
+      </li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section id="ueber-mich">
+    <h2>ueber_mich</h2>
+    <p>
+      Ich befinde mich aktuell in der Umschulung zum Fachinformatiker für
+      Anwendungsentwicklung. Aus früheren Tätigkeiten bringe ich
+      Erfahrung in [Beispiel: Organisation, Kundenkontakt, Problemlösung]
+      mit — Fähigkeiten, die sich gut auf die Softwareentwicklung
+      übertragen lassen. Aktuell vertiefe ich mein Wissen in HTML, CSS
+      und Java und arbeite an ersten eigenen Projekten.
+    </p>
+  </section>
+
+  <section id="kompetenzen">
+    <h2>kompetenzen</h2>
+    <p>Ehrlicher Stand statt Übertreibung — so sortiere ich gerade:</p>
+    <div class="tag-grid">
+      <span class="tag tag-frontend">HTML</span>
+      <span class="tag tag-frontend">CSS</span>
+      <span class="tag tag-learning">Java (Grundlagen)</span>
+      <span class="tag tag-tools">Git / GitHub</span>
+      <span class="tag tag-tools">Linux Mint</span>
+      <span class="tag tag-tools">IntelliJ IDEA</span>
+      <span class="tag tag-soft">Strukturiertes Arbeiten</span>
+    </div>
+  </section>
+
+  <section id="projekte">
+    <h2>projekte</h2>
+    <div class="project-card">
+      <h3>GitHub-Projekt #1</h3>
+      <p>
+        Kurze Beschreibung deines bestehenden Projekts: Was war die
+        Aufgabe, welche Technologien hast du verwendet, was hast du
+        dabei gelernt?
+      </p>
+      <a href="#" class="btn">Auf GitHub ansehen</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <img src="images/hero-bottom-banner.png" alt="Eine Welt, grüner Rasen mit einem Bonsai" id="hero-bottom-banner">
+  <div class="footer-content">
+    <p>&copy; 2026 markjahnke.de</p>
+    <a href="#impressum" class="btn">Impressum</a>
+    <a href="mailto:deine@email.de?subject=Kontaktanfrage" class="btn">Kontakt</a>
+  </div>
+</footer>
+
+</body>
+</html>
