@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> markjahnke.de</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-</head>
+<html lang="de" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> markjahnke.de</title>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" type="image/png" href="images/hero-banner-bewerbungsunterlagen.png">
+    </head>
 
+<body>
+
+<header id="hero-banner">
+        <h1> markjahnke.de<span class="cursor">&nbsp;</span></h1>
+        <p>angehender Fachinformatiker für Anwendungsentwicklung</p>
+</header>
+
+<header class="nav-bar">
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#ueber-mich" class="btn">Über_Mich</a></li>
+            <li><a href="#kompetenzen" class="btn">Kompetenzen</a></li>
+            <li><a href="projekte" class="btn">Projekte</a> </li>
+            <li class="dropdown">
+                <a href="#bewerbungsunterlagen" class="btn">Bewerbungsunterlagen</a>
+                <ul class="dropdown-menu">
+                    <li><a href="persoenliches_profil.html" class="btn">Persönliches_Profil</a></li>
+                    <li><a href="lebenslauf.html" class="btn">Lebenslauf</a></li>
+                </ul>
+            </li>
+            <li><a href="mailto:mark@jahnke-hattingen.de?subject=Kontaktanfrage" class="btn">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section id="ueber-mich">
+        <h2>ueber_mich</h2>
+        <p>
+            Ich befinde mich aktuell in der Umschulung zum Fachinformatik Fachrichtung
+            Anwendungsentwicklung.
+        </p>
+    </section>
+
+    <section id="kompetenzen">
+        <h2>kompetenzen</h2>
+        <p>Ehrlicher Stand statt Übertreibung - so sortiere ich gerade:</p>
+        <div class="tag-grid">
+            <span class="tag tag-frontend">HTML</span>
+            <span class="tag tag-frontend">CSS</span>
+            <span class="tag tag-learning">Java (Grundlagen)</span>
+            <span class="tag tag-tools">Git</span>
+            <span class="tag tag-tools">IntelliJ IDEA</span>
+            <span class="tag tag-tools">Linux</span>
+        </div>
+    </section>
+
+    <section id="projekte">
+        <h2>projekte</h2>
+        <div class="project-card">
+            <h3>Read_Cheat</h3>
+            <p>
+                Read_Cheat ist eine kleine Firefox-Erweiterung,
+                die es ermöglicht via Toggle-Button den Text der
+                aktuellen Website gemäß Bionic Reading anzeigen zu
+                lassen. Ich habe viele Grundlagen erlernen können,
+                möchte aber nicht die Lorbeeren des Hauptentwicklers
+                @decipher____ einheimsen.
+            </p>
+            <a href="#" class="btn">Auf GitHub ansehen</a>
+        </div>
+
+        <div class="project-card">
+            <h3>markjahnke.de</h3>
+            <p>
+                markjahnke.de ist meine erste Website.
+                Dieses Projekt ist ebenso bei GitHub einsehbar.
+            </p>
+            <a href="#" class="btn">Auf GitHub ansehen</a>
+        </div>
+
+
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 markjahnke.de</p>
+        <a href="impressum.html" class="btn">Impressum</a>
+        <a href="mailto:mark@jahnke-hattingen.de?subject=Kontaktanfrage" class="btn">Kontakt</a>
+    </div>
+</footer>
+
+</body>
 </html>
