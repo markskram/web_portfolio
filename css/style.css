@@ -209,9 +209,12 @@ Jede Farbe steht für eine Kategorie -
     font-family: var(--font-mono);
     font-size: 14px;
     padding: 8px 14px;
-    border-radius: 4px;
+    /*
+    border-radius: 0px;
+     */
     color: var(--text-main);
     border: 1px solid rgba(255,255,255,0.08);
+
 }
 
 .tag-frontend   { background-color: var(--accent); }
@@ -219,7 +222,21 @@ Jede Farbe steht für eine Kategorie -
 .tag-logik      { background-color: var(--tag-blue); }
 .tag-learning   { background-color: var(--tag-yellow); color: #121212; }
 .tag-soft       { background-color: var(--accent-light); }
+.tag-markdown   { background-color: var(--tag-orange); color: #121212; }
+.tag-LLM        { background-color: var(--accent-signature); color: #121212; }
 
+.tag, .btn, .timeline-tag {
+    clip-path: polygon(
+            6px 0%,              /* oben-links */
+            calc(100% - 6px) 0%, /* oben-rechts */
+            100% 6px,
+            100% calc(100% - 6px), /* unten-rechts */
+            calc(100% - 6px) 100%,
+            6px 100%,            /* unten-links */
+            0% calc(100% - 6px),
+            0% 6px
+    );
+}
 /* ====================
     PROJEKT-KARTE
 ===================== */
@@ -256,6 +273,7 @@ Jede Farbe steht für eine Kategorie -
     font-family: var(--font-mono);
     font-size: 14px;
     transition: background-color 0.2s ease;
+
 }
 
 .btn:hover {
@@ -450,25 +468,11 @@ Hier folgt das Styling des Lebenslaufs.
     border-radius: 3px;
     color: var(--text-main);
     background-color: rgba(103, 60, 190, 0.25);
-    border: 1px solid var(--accent);
 }
 
 .timeline-tag.green  { background-color: rgba(20, 200, 20, 0.12); border-color: var(--tag-green); color: var(--tag-green); }
 .timeline-tag.yellow { background-color: rgba(157, 116, 35, 0.2); border-color: var(--tag-yellow); }
 .timeline-tag.blue   { background-color: rgba(42, 63, 143, 0.3); border-color: #4a6abf; }
-
-/*
-PERSOENLICHES_PROFIL
- */
-
-.persoenliches_profil-header {
-    font-family: var(--font-mono);
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--text-main);
-    border-left: none;
-    padding-left: 0;
-}
 
 /* ================
     IMPRESSUM
